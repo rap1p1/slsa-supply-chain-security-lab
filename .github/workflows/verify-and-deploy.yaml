@@ -58,8 +58,10 @@ jobs:
           if [ "${{ github.event_name }}" == "workflow_dispatch" ]; then
             DIGEST="${{ inputs.image_digest }}"
           else
-            # Get the latest digest from GHCR
-            DIGEST=$(docker manifest inspect ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest 2>/dev/null | jq -r '.config.digest // .manifests[0].digest')
+            # Pull the image to resolve the tag to the correct manifest digest
+            docker pull ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+            # Get the manifest digest using docker inspect
+            DIGEST=$(docker inspect --format='{{index .RepoDigests 0}}' ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest | cut -d'@' -f2)
           fi
           echo "digest=${DIGEST}" >> "$GITHUB_OUTPUT"
           echo "📦 Image digest: ${DIGEST}"
