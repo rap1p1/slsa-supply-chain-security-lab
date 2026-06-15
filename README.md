@@ -1,4 +1,4 @@
-# 🛡️ SLSA Level 3 Supply Chain Security Lab
+#  SLSA Level 3 Supply Chain Security Lab
 
 > Production-grade supply chain security pipeline implementing **SLSA Level 3** compliance with automated SBOM generation, keyless image signing, non-falsifiable provenance, and Kubernetes policy enforcement.
 
@@ -7,29 +7,29 @@
 
 ---
 
-## 🎯 What Is This?
+##  What Is This?
 
 This project demonstrates **enterprise-grade supply chain security** for a Go-based payment service, implementing all four pillars of modern software supply chain protection:
 
 | Pillar | Tool | Purpose |
 |--------|------|---------|
-| **📋 SBOM** | Syft | Software Bill of Materials — know exactly what's inside your images |
-| **✍️ Signing** | Cosign + Sigstore | Keyless image signing via GitHub OIDC — zero static secrets |
-| **📜 Provenance** | SLSA GitHub Generator | Non-falsifiable build provenance — proves HOW the image was built |
-| **🚫 Enforcement** | Kyverno | Policy-as-code — blocks unsigned/unverified images from deploying |
+| **SBOM** | Syft | Software Bill of Materials — know exactly what's inside your images |
+| **Signing** | Cosign + Sigstore | Keyless image signing via GitHub OIDC — zero static secrets |
+| **Provenance** | SLSA GitHub Generator | Non-falsifiable build provenance — proves HOW the image was built |
+| **Enforcement** | Kyverno | Policy-as-code — blocks unsigned/unverified images from deploying |
 
 ### Why SLSA Level 3?
 
 After SolarWinds, Log4Shell, and xz-utils attacks, the industry learned: **attackers don't break your code — they break your build pipeline**. SLSA Level 3 guarantees:
 
-- ✅ Provenance is generated automatically by an **isolated, trusted builder**
-- ✅ No manual intervention can modify the build process
-- ✅ Cryptographic signatures prove the exact source → artifact chain
-- ✅ Policy enforcement blocks any artifact that doesn't meet these standards
+-  Provenance is generated automatically by an **isolated, trusted builder**
+-  No manual intervention can modify the build process
+-  Cryptographic signatures prove the exact source → artifact chain
+-  Policy enforcement blocks any artifact that doesn't meet these standards
 
 ---
 
-## 🏗️ Architecture
+##  Architecture
 
 ```mermaid
 graph LR
@@ -47,7 +47,7 @@ graph LR
     K -->|"❌ Invalid"| M["🔴 BLOCKED"]
 ```
 
-### 🔐 Keyless Signing Flow (Zero Static Secrets)
+###  Keyless Signing Flow (Zero Static Secrets)
 
 ```mermaid
 sequenceDiagram
@@ -63,12 +63,12 @@ sequenceDiagram
     GA->>GA: Sign image with certificate
     GA->>R: Record signature in transparency log
     GA->>GHCR: Push signature + attestations
-    Note over GA,GHCR: No private keys stored anywhere!
+    Note over GA,GHCR: No private keys stored anywhere
 ```
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 secure-payment-platform/
@@ -99,7 +99,7 @@ secure-payment-platform/
 
 ---
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 - GitHub account with GHCR enabled
@@ -146,7 +146,7 @@ Expected output:
 
 ---
 
-## 🔍 Manual Verification
+##  Manual Verification
 
 ```bash
 # Verify image signature
@@ -168,7 +168,7 @@ slsa-verifier verify-image \
 
 ---
 
-## 🛡️ Security Features
+##  Security Features
 
 | Feature | Implementation | SLSA Level |
 |---------|---------------|------------|
@@ -188,26 +188,24 @@ slsa-verifier verify-image \
 
 ## 🛠️ Tech Stack
 
-| Component | Tool | Cost |
-|-----------|------|------|
-| Application | Go 1.22 | Free |
-| CI/CD | GitHub Actions | Free (2000 min/mo) |
-| Signing | Cosign + Sigstore (Fulcio/Rekor) | Free |
-| Provenance | slsa-github-generator v2 | Free |
-| SBOM | Syft + Trivy | Free |
-| Policy | Kyverno | Free |
-| Registry | GitHub Container Registry | Free (public) |
-| GitOps | ArgoCD | Free |
-| Cluster | k3s / k3d | Free |
-
-**Total cost: $0**
+| Component | Tool |
+|-----------|------|
+| Application | Go 1.22 |
+| CI/CD | GitHub Actions |
+| Signing | Cosign + Sigstore (Fulcio/Rekor) |
+| Provenance | slsa-github-generator v2 |
+| SBOM | Syft + Trivy |
+| Policy | Kyverno |
+| Registry | GitHub Container Registry |
+| GitOps | ArgoCD |
+| Cluster | k3s / k3d |
 
 ---
 
-## 📝 CV-Ready Summary
+##  CV-Ready Summary
 
 ```
-✅ Implemented SLSA Level 3 Supply Chain Security Lab
+ Implemented SLSA Level 3 Supply Chain Security Lab
 • Automated SBOM generation (CycloneDX/SPDX) with vulnerability scanning
 • Keyless image signing via Sigstore/Cosign + GitHub OIDC (zero static secrets)
 • Non-falsifiable SLSA L3 provenance using isolated GitHub Actions builder
@@ -218,7 +216,7 @@ slsa-verifier verify-image \
 
 ---
 
-## 📚 Documentation
+##  Documentation
 
 - [Architecture Decision Records](docs/architecture.md)
 - [SLSA Framework Overview](docs/slsa-overview.md)
@@ -226,6 +224,6 @@ slsa-verifier verify-image \
 
 ---
 
-## 📄 License
+##  License
 
 MIT License — see [LICENSE](LICENSE) for details.
