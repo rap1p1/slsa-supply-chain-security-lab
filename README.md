@@ -186,7 +186,7 @@ slsa-verifier verify-image \
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 | Component | Tool |
 |-----------|------|
@@ -202,7 +202,7 @@ slsa-verifier verify-image \
 
 ---
 
-##  CV-Ready Summary
+##  Summary
 
 ```
  Implemented SLSA Level 3 Supply Chain Security Lab
