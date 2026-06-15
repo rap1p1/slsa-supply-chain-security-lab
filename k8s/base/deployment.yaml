@@ -48,7 +48,7 @@ spec:
           # CRITICAL: Use digest reference, NOT tag
           # This is updated automatically by the CD pipeline after verification
           # Replace this digest with the actual one after first pipeline run
-          image: ghcr.io/rap1p1/secure-payment-platform@sha256:placeholder-will-be-updated-by-pipeline
+          image: ghcr.io/rap1p1/secure-payment-platform@sha256:1e49a5b383560157c487c7342d7e86581aa3626ad2b3f1501aa5810685d9a97a
           imagePullPolicy: Always
 
           ports:
