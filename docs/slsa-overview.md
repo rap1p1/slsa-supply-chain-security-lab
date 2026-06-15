@@ -49,25 +49,25 @@ The key difference: At Level 3, **even the repository owner cannot fake provenan
 ## How This Project Implements SLSA Level 3
 
 ### 1. Build Service (GitHub Actions)
-- Hosted, authenticated build service ✅
-- Ephemeral runners (each build gets a fresh VM) ✅
-- Audit log of all builds ✅
+- Hosted, authenticated build service 
+- Ephemeral runners (each build gets a fresh VM) 
+- Audit log of all builds 
 
 ### 2. Provenance Generation (slsa-github-generator)
-- Runs as a **reusable workflow** in a separate job ✅
-- Developer cannot modify the provenance generation code ✅
-- Provenance signed with GitHub's OIDC identity ✅
-- Records: source URI, commit hash, builder ID, build steps ✅
+- Runs as a **reusable workflow** in a separate job 
+- Developer cannot modify the provenance generation code 
+- Provenance signed with GitHub's OIDC identity 
+- Records: source URI, commit hash, builder ID, build steps 
 
 ### 3. Signing (Cosign + Sigstore)
-- Keyless signing via OIDC (no static secrets) ✅
-- Signatures recorded in Rekor transparency log ✅
-- Verifiable by anyone without special keys ✅
+- Keyless signing via OIDC (no static secrets) 
+- Signatures recorded in Rekor transparency log 
+- Verifiable by anyone without special keys 
 
 ### 4. Verification (Kyverno)
-- Admission webhook verifies before pod creation ✅
-- Checks signature, provenance, and SBOM ✅
-- Enforce mode: blocks non-compliant images ✅
+- Admission webhook verifies before pod creation 
+- Checks signature, provenance, and SBOM 
+- Enforce mode: blocks non-compliant images 
 
 ## SLSA Provenance Format (v1.0)
 
